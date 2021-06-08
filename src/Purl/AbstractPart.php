@@ -67,7 +67,7 @@ abstract class AbstractPart implements ArrayAccess
     /**
      * @param mixed $value
      */
-    public function set(string $key, $value) : void
+    public function set(string $key, $value) : AbstractPart
     {
         $this->initialize();
         $this->data[$key] = $value;
@@ -78,7 +78,7 @@ abstract class AbstractPart implements ArrayAccess
     /**
      * @param mixed $value
      */
-    public function add($value) : void
+    public function add($value) : AbstractPart
     {
         $this->initialize();
         $this->data[] = $value;
@@ -86,7 +86,7 @@ abstract class AbstractPart implements ArrayAccess
         return $this;
     }
 
-    public function remove(string $key) : void
+    public function remove(string $key) : AbstractPart
     {
         $this->initialize();
 
@@ -113,7 +113,7 @@ abstract class AbstractPart implements ArrayAccess
      */
     public function __set(string $key, $value) : void
     {
-        return $this->set($key, $value);
+        $this->set($key, $value);
     }
 
     public function __unset(string $key) : void
